@@ -4,26 +4,28 @@ import UniqueOverlay from '../UniqueOverlay';
 import DefaultOverlayContent from "../DefaultOverlayContent";
 import {ModelSection, ModelsWrapper} from "../Model";
 
-import { Container } from './styles';
+import { Container, Spacer } from './styles';
 
 const Page: React.FC = () => {
+  const models = [
+    'Model One',
+    'Model Two',
+    'Model Three',
+    'Model Four',
+    'Model Five',
+    'Model Six',
+    'Model Seven',
+  ];
   return (
     <Container>
       <ModelsWrapper>
         <div>
-          {[
-            'Model One',
-            'Model Two',
-            'Model Three',
-            'Model Four',
-            'Model Five',
-            'Model Six',
-            'Model Seven',
-          ].map(modelName => (
+          {models.map((modelName, index) => (
             <ModelSection
               key={modelName}
               className="colored"
               modelName={modelName}
+              lastModel={models.length-1 === index}
               overlayNode={
                 <DefaultOverlayContent 
                   label={modelName}
@@ -33,6 +35,7 @@ const Page: React.FC = () => {
             />
           ))}
         </div>
+        <Spacer />
         <UniqueOverlay />
       </ModelsWrapper>
     </Container>
