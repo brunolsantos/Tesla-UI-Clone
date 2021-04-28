@@ -20,7 +20,6 @@ export default function UserWrapperScroll() {
           } = element;
 
           const fullScroll = scrollHeight - offsetHeight;
-          console.log(`scrollTop: ${scrollTop}`)
           scrollY.set(scrollTop); // number
           scrollProgress.set(scrollTop / fullScroll); // 0 - 1 (%)
         }
